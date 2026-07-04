@@ -1,0 +1,15 @@
+services:
+  farm-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: destructive-farm-server
+    ports:
+      - "5000:5000"
+    environment:
+      CONFIG: /config/config.py
+      FLAGS_DATABASE: /data/flags.sqlite
+    volumes:
+      - ./server/config.py:/config/config.py:ro
+      - ./data:/data
+    restart: unless-stopped

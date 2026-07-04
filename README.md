@@ -36,6 +36,30 @@ Read the [FAQ](docs/en/faq.md) if you want to know what attack-defense CTFs are,
     <i>The arrows display the flow of the flags</i>
 </p>
 
+## Run With Docker Compose
+
+You can run the farm server with one command:
+
+```bash
+docker compose up -d --build
+```
+
+The server will be available on `http://localhost:5000`.
+
+### Persistent database on host filesystem
+
+The provided [docker-compose.yml](docker-compose.yml) bind-mounts `./data` from your host into the container and stores the SQLite database as `./data/flags.sqlite`.
+
+- Config file: `./server/config.py` is mounted read-only into the container.
+- Database file: `./data/flags.sqlite` is created automatically on first start.
+
+Useful commands:
+
+```bash
+docker compose logs -f
+docker compose down
+```
+
 ## Future Plans
 
 See the list [here](https://github.com/borzunov/DestructiveFarm/issues/1).
