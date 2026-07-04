@@ -3,15 +3,15 @@ CONFIG = {
 
     # The clients will run sploits on TEAMS and
     # fetch FLAG_FORMAT from sploits' stdout.
-    'TEAMS': {'Team #{}'.format(i): '10.0.0.{}'.format(i)
-              for i in range(1, 29 + 1)},
-    'FLAG_FORMAT': r'[A-Z0-9]{31}=',
+    'TEAMS': {'Team #{}'.format(i): '10.10.{}.1'.format(i)
+              for i in range(1, 16 + 1)},
+    'FLAG_FORMAT': r'VBC_[A-Za-z0-9+/]{32}',
 
     # This configures how and where to submit flags.
     # The protocol must be a module in protocols/ directory.
 
-    'SYSTEM_PROTOCOL': 'ructf_tcp',
-    'SYSTEM_HOST': '127.0.0.1',
+    'SYSTEM_PROTOCOL': 'vbc_tcp',
+    'SYSTEM_HOST': '10.10.254.254',
     'SYSTEM_PORT': 31337,
 
     # 'SYSTEM_PROTOCOL': 'ructf_http',
@@ -31,11 +31,11 @@ CONFIG = {
     # FLAG_LIFETIME seconds ago will be skipped.
     'SUBMIT_FLAG_LIMIT': 50,
     'SUBMIT_PERIOD': 5,
-    'FLAG_LIFETIME': 5 * 60,
+    'FLAG_LIFETIME': 5 * 60 * 3,
 
     # Password for the web interface. You can use it with any login.
     # This value will be excluded from the config before sending it to farm clients.
-    'SERVER_PASSWORD': '1234',
+    'SERVER_PASSWORD': 'fiat500ftw',
 
     # Use authorization for API requests
     'ENABLE_API_AUTH': False,
