@@ -38,6 +38,6 @@ CONFIG = {
     'SERVER_PASSWORD': 'fiat500ftw',
 
     # Use authorization for API requests
-    'ENABLE_API_AUTH': False,
-    'API_TOKEN': '00000000000000000000'
+    'ENABLE_API_AUTH': True,
+    'API_TOKEN': '00000000000011100000'
 }

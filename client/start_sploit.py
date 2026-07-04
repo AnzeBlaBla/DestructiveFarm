@@ -79,13 +79,13 @@ def parse_args():
     parser.add_argument('sploit',
                         help="Sploit executable (should take a victim's host as the first argument)")
     parser.add_argument('-u', '--server-url', metavar='URL',
-                        default='http://farm.kolambda.com:5000',
+                        default='http://10.10.11.1:5000',
                         help='Server URL')
     parser.add_argument('-a', '--alias', metavar='ALIAS',
                         default=None,
                         help='Sploit alias')
     parser.add_argument('--token', metavar='TOKEN',
-                        help='Farm authorization token')
+                        help='Farm authorization token', default='00000000000011100000')
     parser.add_argument('--interpreter', metavar='COMMAND',
                         help='Explicitly specify sploit interpreter (use on Windows, which doesn\'t '
                              'understand shebangs)')
@@ -94,7 +94,7 @@ def parse_args():
                         help='Maximal number of concurrent sploit instances. '
                              'Too little value will make time limits for sploits smaller, '
                              'too big will eat all RAM on your computer')
-    parser.add_argument('--attack-period', metavar='N', type=float, default=120,
+    parser.add_argument('--attack-period', metavar='N', type=float, default=60*3,
                         help='Rerun the sploit on all teams each N seconds '
                              'Too little value will make time limits for sploits smaller, '
                              'too big will miss flags from some rounds')
